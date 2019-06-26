@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
-// import PaymentDetailsX from "../containers/PaymentDetailsX";
-import PaymentDetailsX from "../containers/PaymentDetailsX";
 import AddAccountModalX from "../containers/AddAccountModalX";
+import EditAccountModalX from "../containers/EditAccountModalX";
+import CustomerAccountsX from '../containers/CustomerAccountsX';
+import PaymentSelectionX from '../containers/PaymentSelectionX';
 
 
 const styles = theme => ({
+  rootGrid: {
+    flexWrap: 'nowrap',
+  },
   paymentDetailsWrapper: {
-    flex: "1 0 auto",
+    flex: "0 1 100%",
   },
   cartWrapper: {
-    flex: "0 1 400px",
+    flex: "1 0 400px",
     backgroundColor: "#eceff1",
+    padding: '20px',
   },
 });
 
@@ -24,17 +29,21 @@ class PaymentCreator extends Component {
       } = this.props;
       return (
         <div className="paymentCreator">
-          <Grid container>
+          <Grid container className={classes.rootGrid}>
             <Grid item className={classes.paymentDetailsWrapper}>
-              <PaymentDetailsX />
+              <Router>
+                <Route path="/" exact component={CustomerAccountsX} />
+                <Route path="/methods" component={PaymentSelectionX} />
+              </Router>
             </Grid>
-            {/* <Grid item className={classes.cartWrapper}>
-              <Button variant="contained" color="primary">
-                Hello World
-              </Button>
-            </Grid> */}
+            <Grid item className={classes.cartWrapper}>
+              <h2>
+                Cart
+              </h2>
+            </Grid>
           </Grid>
           <AddAccountModalX />
+          <EditAccountModalX />
         </div>
       );
     }

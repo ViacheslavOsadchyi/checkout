@@ -4,7 +4,6 @@
 
 export const SELECT_ACCOUNT = 'SELECT_ACCOUNT';
 export const SELECT_METHOD = 'SELECT_METHOD';
-export const SET_ACTIVE_TAB = 'SET_ACTIVE_TAB';
 
 
 /*
@@ -15,10 +14,6 @@ export function selectAccount(id) {
   return { type: SELECT_ACCOUNT, id };
 }
 
-export function selectMethod(id) {
-  return { type: SELECT_METHOD, id };
-}
-
-export function setActiveTab(tab) {
-  return { type: SET_ACTIVE_TAB, tab };
+export function selectMethod(method) {
+  return { type: SELECT_METHOD, method };
 }

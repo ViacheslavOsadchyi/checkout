@@ -11,7 +11,7 @@ const initialState = [{
     name: 'Kusturiza d.i.o',
     email: 'email1@gmail.com',
     address: '',
-    method: 'Wire Transfer',
+    method: '1',
     cardData: {
         number: '12121212121212',
         expDate: '12/18',
@@ -26,7 +26,22 @@ const initialState = [{
     name: 'Kusturiza d.i.o',
     email: 'email2@gmail.com',
     address: '',
-    method: 'PayPal',
+    method: '0',
+    cardData: {
+        number: null,
+        expDate: null,
+        cvv: null,
+    },
+    paypalData: {
+        number: 'paypal@kusturiza.cz',
+    },
+    bank: 'PayPal',
+}, {
+    id: 2,
+    name: 'Kusturiza d.i.o',
+    email: 'email3@gmail.com',
+    address: '',
+    method: '2',
     cardData: {
         number: null,
         expDate: null,
@@ -54,7 +69,19 @@ export default function customerAccounts (state = initialState, action) {
                 ...state.slice(0, index),
                 ...state.slice(index+1)
             ]
-            // return state.filter(accData => accData.id !== action.id);
+        case EDIT_ACCOUNT:
+            const accIndex = _.findIndex(state, ['id', action.id]);
+
+            return state.map((item,index) => {
+                if (index !== accIndex) {
+                    return item;
+                }
+
+                return {
+                    ...item,
+                    ...action.data,
+                }
+            });       
         default:
             return state;
     }

@@ -28,7 +28,6 @@ class MaterialTextField extends Component {
         {...this.props}
         value={input.value}
         onChange={input.onChange}
-        classame={classes.errorMessage}
       />
       {touched &&
         ((error && <span className={classes.errorMessage}>! {error}</span>) ||

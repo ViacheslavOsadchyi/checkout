@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { submit } from 'redux-form'
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -7,34 +7,36 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from '@material-ui/core/Button';
-import AddAccountForm from '../AddAccountForm';
+import EditAccountForm from '../EditAccountForm';
 
-class AddAccountModal extends Component {
+class EditAccountModal extends Component {
     render() {
       const {
-        addAccountModalShow,
+        isVisible,
+        accountId,
         handleClose,
         dispatch,
       } = this.props;
+
       return (
         <Dialog
             minWidth={300}
-            open={addAccountModalShow}
+            open={isVisible}
         >
             <DialogTitle>
-                Add Customer Account
+                Edit Customer Account
             </DialogTitle>
             <DialogContent>
                 <DialogContentText>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                 </DialogContentText>
-                <AddAccountForm />
+                <EditAccountForm accountId={accountId} />
             </DialogContent>
             <DialogActions>
                  <Button onClick={() => {
-                    dispatch(submit('addAccount'));
+                    dispatch(submit('editAccount'));
                  }}>
-                    Add
+                    Save
                 </Button>
                 <Button onClick={handleClose} color="primary">
                     Close
@@ -45,4 +47,4 @@ class AddAccountModal extends Component {
     }
   }
   
-  export default connect()(AddAccountModal);
+  export default connect()(EditAccountModal);

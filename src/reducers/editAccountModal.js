@@ -3,13 +3,24 @@ import {
     HIDE_EDIT_ACCOUNT_MODAL,
 } from '../actions/editAccountModal';
 
-export default function editAccountModal (state = false, action) {
+const initialState = {
+    accountId: null,
+    isVisible: false,
+};
+
+export default function editAccountModal (state = initialState, action) {
     switch (action.type) {
         case SHOW_EDIT_ACCOUNT_MODAL:
-            return true;
+            return {
+                accountId: action.accountId,
+                isVisible: true,
+            };
         case HIDE_EDIT_ACCOUNT_MODAL:
-            return false;
+            return {
+                accountId: null,
+                isVisible: false,
+            }
         default:
-            return false;
+            return state;
     }
 }

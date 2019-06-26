@@ -1,13 +1,13 @@
 import {
     SELECT_ACCOUNT,
-    SELECT_METHOD,
-    SET_ACTIVE_TAB,
 } from '../actions/payment';
+import {
+    DELETE_ACCOUNT,
+} from '../actions/customerAccounts';
 
 const initialState = {
     account: null,
     method: null,
-    activeTab: 'accounts',
     VATIncluded: false,
     comissionIncluded: false,
     total: 0,
@@ -15,11 +15,19 @@ const initialState = {
 
 export default function payment (state = initialState, action) {
     switch (action.type) {
-        case SET_ACTIVE_TAB:
+        case SELECT_ACCOUNT:
             return {
                 ...state,
-                activeTab: action.tab,
+                account: action.id,
             };
+        case DELETE_ACCOUNT:
+            if (action.id === state.account){
+                return {
+                    ...state,
+                    account: null,
+                }
+            }
+            return state;
         default:
             return state;
     }

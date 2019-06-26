@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import MaterialTextField from '../MaterialTextField';
-import MaterialSelect from '../MaterialSelect';
+import _ from 'lodash';
+import { connect } from 'react-redux'
 import MenuItem from '@material-ui/core/MenuItem';
+import MaterialSelect from '../MaterialSelect';
+import MaterialTextField from '../MaterialTextField';
 import {
   required as requiredValidationRule,
   email as emailValidationRule,
 } from '../../validationRules';
 import {
-  addAccountFromModal,
-} from '../../actions/addAccountModal';
+  editAccountFromModal,
+} from '../../actions/editAccountModal';
 
 function submit (values, dispatch, form) {
-  let newAccount = {
-    ...values,
-    id: parseInt(Math.random() * 10000),
-  }
-  dispatch(addAccountFromModal(newAccount));
+  dispatch(editAccountFromModal(form.accountId, values));
 }
 
-class AddAccountForm extends Component {
+class EditAccountForm extends Component {
     render() {
       const {
         handleSubmit,
         paymentMethods,
       } = this.props;
+
+      console.log('Props!!!');
+      console.log(this.props);
 
       return (
         <form onSubmit={handleSubmit}>
@@ -64,4 +64,17 @@ class AddAccountForm extends Component {
     }
   }
   
-  export default connect(state => ({paymentMethods: state.paymentMethods}))(reduxForm({form: 'addAccount', onSubmit: submit})(AddAccountForm));
+  export default connect(state => {
+    const accIndex = _.findIndex(state.accounts, ['id', state.editAccountModal.accountId]);
+    const accData = state.accounts[accIndex];
+    const paymentMethods = state.paymentMethods;
+
+    return {
+      initialValues: accData,
+      paymentMethods,
+    };
+})(
+  reduxForm({form: 'editAccount', onSubmit: submit}
+)(
+  EditAccountForm
+));

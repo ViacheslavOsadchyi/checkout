@@ -7,6 +7,7 @@ import {
 const mapStateToProps = (state, props) => {
     return {
         accounts: state.accounts,
+        isAccountSelected: state.payment.account !== null,
     }
 }
 
