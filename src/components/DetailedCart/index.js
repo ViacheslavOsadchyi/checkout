@@ -3,56 +3,50 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import FeesDescriptionX from '../../containers/FeesDescriptionX';
+import feesDescription from '../feesDescription';
+import componentStyles from './styles';
 
-const styles = theme => ({
-    cartTitleSection: {
-        marginBottom: '30px',
-    },
-    cartTitle: {
-        paddingBottom: '10px',
-    },
-    cartTitleHeader: {
-        fontSize: '24px',
-    },
-    itemsCountBadge: {
-        minWidth: '30px',
-        lineHeight: '30px',
-        backgroundColor: theme.palette.primary.main,
-        borderRadius: '100%',
-        color: '#fff',
-        textAlign: 'center',
-    },
-    cartItems: {
-        marginBottom: '30px',
-    },
-    cartItem: {
-        marginBottom: '20px',
-    },
-    cartItemTitle: {
-        fontSize: '1em',
-        fontWeight: 'inherit',
-        margin: 'auto',
-    },
-    cartItemSubtitle: {
-        color: theme.palette.grey['600'],
-        margin: '5px 0',
-    },
-    cartItemPrice: {
-        color: theme.palette.grey['600'],
-        fontWeight: '700',
-        margin: '10px 0 0'
+class DetailedCart extends Component {
+    renderSummary() {
+        const {
+            feesDescription,
+            subtotal,
+            total,
+            classes,
+        } = this.props;
+
+        return total === subtotal ? (
+                <div className={classes.summary}>
+                    <Grid container justify="space-between" className={`${classes.totalRow} ${classes.summaryRow}`}>
+                        <Grid item>Total</Grid>
+                        <Grid item className={classes.summaryValue}>$ {total}</Grid>
+                    </Grid>
+                </div>
+            ) : (
+                <div className={classes.summary}>
+                    <Grid container justify="space-between" className={classes.summaryRow}>
+                        <Grid item>Subtotal</Grid>
+                        <Grid className={classes.summaryValue}>$ {subtotal}</Grid>
+                    </Grid>
+                    {feesDescription.map((data, i) => (
+                        <Grid key={i} container justify="space-between" className={classes.summaryRow}>
+                            <Grid item>{data.label}</Grid>
+                            <Grid item className={classes.summaryValue}>$ {data.value}</Grid>
+                        </Grid>
+                    ))}
+                    <Grid container justify="space-between" className={`${classes.totalRow} ${classes.summaryRow}`}>
+                        <Grid item>Total</Grid>   
+                        <Grid item className={classes.summaryValue}>$ {total}</Grid>
+                    </Grid>   
+                </div>             
+            );
     }
-})
 
-class CustomerAccount extends Component {
     render() {
       const {
         classes,
         itemsCount,
         cartItems,
-        subtotal,
-        total,
       } = this.props;
 
       return (
@@ -89,13 +83,11 @@ class CustomerAccount extends Component {
                     })}
                 </div>
                 <Divider />
-                <h4>Subtotal: {subtotal}</h4>
-                <FeesDescriptionX />
-                <h4>Total: {total}</h4>
+                {this.renderSummary()}
             </section>
         </div>
       );
     }
   }
   
-  export default withStyles(styles)(CustomerAccount);
+  export default feesDescription(withStyles(componentStyles)(DetailedCart));

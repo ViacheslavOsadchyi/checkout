@@ -8,15 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import PaymentDetailsSteps from '../PaymentDetailsSteps';
 import CustomerAccountX from '../../containers/CustomerAccountX';
-
-const styles = theme => ({
-  gridContainer: {
-    padding: theme.spacing.unit * 2,
-  },
-  buttonIcon: {
-    marginRight: '5px',
-  }
-});
+import componentStyles from './styles';
 
 class CustomerAccounts extends Component {
     render() {
@@ -70,4 +62,4 @@ class CustomerAccounts extends Component {
     }
   }
   
-  export default withStyles(styles)(CustomerAccounts);
+  export default withStyles(componentStyles)(CustomerAccounts);

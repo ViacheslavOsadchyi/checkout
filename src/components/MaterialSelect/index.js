@@ -3,18 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-
-const styles = theme => ({
-  materialSelectFC: {
-    width: '100%',
-  },
-  errorMessage: {
-    color: theme.palette.error.main,
-  },
-  warn: {
-    color: '#ffc107',
-  }
-});
+import componentStyles from './styles';
 
 class MaterialSelect extends Component {
   render () {
@@ -47,4 +36,4 @@ class MaterialSelect extends Component {
   }
 }
 
-export default withStyles(styles)(MaterialSelect);
+export default withStyles(componentStyles)(MaterialSelect);

@@ -28,21 +28,6 @@ export function selectAccount(id) {
   }
 }
 
-export function calculateTotal(methodId, subtotal) {
-  let total = subtotal;
-
-  switch (methodId) {
-    case "0":
-      total += subtotal * 0.01 + subtotal * 0.21;
-      break;
-    case "1": 
-      total +=  subtotal * 0.01;
-      break;
-  }
-
-  return total
-}
-
 // export function setTotalValue(value) {
 //   return { type: SET_TOTAL_VALUE, value }
 // }
@@ -57,11 +42,18 @@ export function selectMethod(methodId) {
     const {
       cart: {
         subtotal,
-      }
+      },
+      paymentMethods: methods,
+      fees,
     } = state;
 
-    const total = calculateTotal(methodId, parseFloat(subtotal));
+    const methodFees = methods[methodId].fees.map(id => (fees[id]));
+
+    const total = methodFees.reduce((currentTotal, feeData) => {
+      return currentTotal += subtotal * (parseFloat(feeData.percents) / 100);
+    }, subtotal);
+    
     dispatch(setPaymentMethod(methodId));
-    dispatch(setCartTotalValue(total));
+    dispatch(setCartTotalValue(Math.round(total * 100)/100));
   }
 }

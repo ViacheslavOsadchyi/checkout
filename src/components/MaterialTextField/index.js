@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-
-const styles = theme => ({
-  errorMessage: {
-    color: theme.palette.error.main,
-  },
-  warn: {
-    color: '#ffc107',
-  }
-});
+import componentStyles from './styles';
 
 class MaterialTextField extends Component {
   render () {
@@ -37,4 +29,4 @@ class MaterialTextField extends Component {
   }
 }
 
-export default withStyles(styles)(MaterialTextField);
+export default withStyles(componentStyles)(MaterialTextField);

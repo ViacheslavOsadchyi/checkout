@@ -9,8 +9,8 @@ const initialState = {
     "1": {
         id: "1",
         name: "vat",
-        label: "VAT",
-        percents: "5",
+        label: "VAT 21%",
+        percents: "21",
     },
 };
 

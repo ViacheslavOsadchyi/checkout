@@ -9,13 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Link } from 'react-router-dom';
 import PaymentDetailsSteps from '../PaymentDetailsSteps';
-
-
-const styles = theme => ({
-  buttonIcon: {
-    marginRight: '5px',
-  }
-});
+import componentStyles from './styles';
 
 class PaymentSelection extends Component {
     render() {
@@ -38,14 +32,13 @@ class PaymentSelection extends Component {
                 const methodData = paymentMethods[id];
 
                 return (
-                  <ListItem key={id} role={undefined} dense button>
+                  <ListItem key={id} role={undefined} onClick={e => selectPaymentHandler(id)} dense button>
                     <ListItemIcon>
                       <Checkbox
                           edge="start"
                           checked={selectedMethodId === id}
                           tabIndex={-1}
                           disableRipple
-                          onClick={e => selectPaymentHandler(id)}
                       />
                     </ListItemIcon>
                     <ListItemText primary={methodData.label} />
@@ -74,4 +67,4 @@ class PaymentSelection extends Component {
     }
   }
   
-  export default withStyles(styles)(PaymentSelection);
+  export default withStyles(componentStyles)(PaymentSelection);
