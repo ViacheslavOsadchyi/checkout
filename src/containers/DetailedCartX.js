@@ -5,8 +5,6 @@ const mapStateToProps = (state, props) => {
     const {
         cart,
         products,
-        paymentMethods,
-        fees,
         payment,
     } = state;
 
@@ -18,14 +16,12 @@ const mapStateToProps = (state, props) => {
         return total + currentItem.quantity;
     }, 0);
 
-    const methodFees = payment.method ? paymentMethods[payment.method].fees.map(id => fees[id]) : [];
-
     return {
         cartItems,
         itemsCount,
         subtotal: cart.subtotal,
         total: cart.total,
-        methodFees,
+        methodId: payment.method,
     }
 }
 

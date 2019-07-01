@@ -15,7 +15,8 @@ import {
 function submit (values, dispatch, form) {
   let newAccount = {
     ...values,
-    id: parseInt(Math.random() * 10000),
+    id: String(parseInt(Math.random() * 10000)),
+    created_at: Date.now(),
   }
   dispatch(addAccountFromModal(newAccount));
 }

@@ -4,24 +4,34 @@ function feesDescription(WrappedComponent) {
     return class extends Component {
         render() {
             const {
-                methodFees,
+                methodId,
                 subtotal,
             } = this.props;
 
+            let subtotalNum = parseFloat(subtotal);
+            let descriptions;
 
-            const feesDescription = methodFees.map((feeData) => {
-                const {
-                    label,
-                    percents,
-                } = feeData;
-                const value = subtotal * (parseFloat(percents) / 100);
-                return {
-                    label,
-                    value,
-                }
-            });
+            switch (methodId) {
+                case "0":
+                    descriptions = [{
+                        label: 'Payment processing services 1%',
+                        value: subtotalNum * 0.01,
+                    }, {
+                        label: 'VAT 21%',
+                        value: subtotalNum * 1.01 * 0.21,
 
-            return <WrappedComponent feesDescription={feesDescription} {...this.props} />;
+                    }];
+                    break;
+                case "1":
+                    descriptions = [{
+                        label: 'Payment processing services 1%',
+                        value: subtotalNum * 0.01,                        
+                    }];
+                    break;
+                default:
+            }
+
+            return <WrappedComponent feesDescription={descriptions} {...this.props} />;
         }
     }
 }

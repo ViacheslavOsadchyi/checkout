@@ -1,21 +1,14 @@
 import {
     SET_PAYMENT_ACCOUNT, 
     SET_PAYMENT_METHOD,
-    // SET_TOTAL_VALUE,
 } from '../actions/payment';
 import {
-    DELETE_ACCOUNT,
+    DELETE_ACCOUNT_INSTANCE,
 } from '../actions/customerAccounts';
-// import {
-//     SET_CART_TOTAL_VALUE,
-// } from '../actions/cart';
 
 const initialState = {
     account: null,
     method: null,
-    VATIncluded: false,
-    comissionIncluded: false,
-    total: 400,
 };
 
 export default function payment (state = initialState, action) {
@@ -25,21 +18,17 @@ export default function payment (state = initialState, action) {
                 ...state,
                 account: action.id,
             };
-        // case SET_TOTAL_VALUE:
-        //         return {
-        //             ...state,
-        //             total: action.value,
-        //         };
         case SET_PAYMENT_METHOD:
             return {
                 ...state,
                 method: action.id,
             };
-        case DELETE_ACCOUNT:
+        case DELETE_ACCOUNT_INSTANCE:
             if (action.id === state.account){
                 return {
                     ...state,
                     account: null,
+                    method: null,
                 }
             }
             return state;

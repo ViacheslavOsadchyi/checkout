@@ -7,7 +7,6 @@ import addAccountModal from './addAccountModal';
 import editAccountModal from './editAccountModal';
 import payment from './payment';
 import paymentMethods from './paymentMethods';
-import fees from './fees';
 
 const paymentApp = combineReducers({
     addAccountModal,
@@ -18,7 +17,6 @@ const paymentApp = combineReducers({
     payment,
     form: formReducer,
     paymentMethods,
-    fees,
 })
 
 export default paymentApp;

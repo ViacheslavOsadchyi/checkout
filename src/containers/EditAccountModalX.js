@@ -3,7 +3,7 @@ import {
     hideEditAccountModal,
 } from '../actions/editAccountModal';
 import {
-    editAccount,
+    editAccountInstance,
 } from '../actions/customerAccounts';
 import { EditAccountModal } from '../components';
 
@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => {
             dispatch(hideEditAccountModal());
         },
         handleSave: (data) => {
-            dispatch(editAccount(data));
+            dispatch(editAccountInstance(data));
         }
     }
 }

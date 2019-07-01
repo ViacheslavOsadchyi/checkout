@@ -13,9 +13,10 @@ class DetailedCart extends Component {
             subtotal,
             total,
             classes,
+            methodId,
         } = this.props;
 
-        return total === subtotal ? (
+        return (methodId === null || total === subtotal) ? (
                 <div className={classes.summary}>
                     <Grid container justify="space-between" className={`${classes.totalRow} ${classes.summaryRow}`}>
                         <Grid item>Total</Grid>

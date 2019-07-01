@@ -1,5 +1,5 @@
 import {
-  editAccount,
+  editAccountInstance,
 } from './customerAccounts';
 
 /*
@@ -26,7 +26,7 @@ export function editAccountFromModal(id, data) {
   return (dispatch) => {
     dispatch(hideEditAccountModal());
     setTimeout(()=>{
-      dispatch(editAccount(id, data));
+      dispatch(editAccountInstance(id, data));
     }, 500);
   }
 }

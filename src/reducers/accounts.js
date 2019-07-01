@@ -1,9 +1,9 @@
 import _ from 'lodash';
 
 import {
-    CREATE_ACCOUNT,
-    EDIT_ACCOUNT,
-    DELETE_ACCOUNT,
+    CREATE_ACCOUNT_INSTANCE,
+    EDIT_ACCOUNT_INSTANCE,
+    DELETE_ACCOUNT_INSTANCE,
 } from '../actions/customerAccounts';
 
 const initialState = {
@@ -22,6 +22,7 @@ const initialState = {
             number: null,
         },
         bank: 'Siq banka',
+        created_at: 1,
     }, 
     "1": {
         id: "1",
@@ -38,6 +39,7 @@ const initialState = {
             number: 'paypal@kusturiza.cz',
         },
         bank: 'PayPal',
+        created_at: 2,
     }, 
     "2": {
     id: "2",
@@ -54,18 +56,19 @@ const initialState = {
         number: 'paypal@kusturiza.cz',
     },
     bank: 'PayPal',
+    created_at: 3,
 }};
 
 export default function customerAccounts (state = initialState, action) {
     switch (action.type) {
-        case CREATE_ACCOUNT:
+        case CREATE_ACCOUNT_INSTANCE:
             return {
                 ...state,
                 [action.data.id]: action.data,
             };
-        case DELETE_ACCOUNT:
+        case DELETE_ACCOUNT_INSTANCE:
             return _.omit(state, action.id)
-        case EDIT_ACCOUNT:          
+        case EDIT_ACCOUNT_INSTANCE:          
             return {
                 ...state,
                 [action.data.id]: action.data,
