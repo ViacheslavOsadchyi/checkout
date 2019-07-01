@@ -4,16 +4,19 @@ const initialState = {
         id: "0",
         name: "paypal",
         label: "PayPal",
+        fees: ["0", "1"],
     },
     "1": {
         id: "1",
         name: "credit_card",
         label: "Credit Card",
+        fees: ["1"]
     },
     "2": {
         id: "2",
         name: "ballance",
         label: "Ballance",
+        fees: [],
     }
 };
 

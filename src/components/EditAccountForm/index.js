@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import _ from 'lodash';
 import { connect } from 'react-redux'
 import MenuItem from '@material-ui/core/MenuItem';
 import MaterialSelect from '../MaterialSelect';
@@ -23,9 +22,6 @@ class EditAccountForm extends Component {
         handleSubmit,
         paymentMethods,
       } = this.props;
-
-      console.log('Props!!!');
-      console.log(this.props);
 
       return (
         <form onSubmit={handleSubmit}>
@@ -65,8 +61,7 @@ class EditAccountForm extends Component {
   }
   
   export default connect(state => {
-    const accIndex = _.findIndex(state.accounts, ['id', state.editAccountModal.accountId]);
-    const accData = state.accounts[accIndex];
+    const accData = state.accounts[state.editAccountModal.accountId];
     const paymentMethods = state.paymentMethods;
 
     return {

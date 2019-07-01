@@ -36,9 +36,9 @@ class CustomerAccounts extends Component {
             <Grid item>
               <div className={classes.gridContainer + " customerAccounts__grid"}>
                 <Grid container spacing={24}>
-                  {accounts.map((accData) => (
-                    <Grid key={accData.id} item>
-                      <CustomerAccountX id={accData.id} />
+                  {Object.keys(accounts).map((id) => (
+                    <Grid key={id} item>
+                      <CustomerAccountX id={id} />
                     </Grid>
                   ))}
                   <Grid item>

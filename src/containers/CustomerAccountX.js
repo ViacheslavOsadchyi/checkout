@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import {
     deleteAccount,
 } from '../actions/customerAccounts';
@@ -20,9 +19,7 @@ const mapStateToProps = (state, ownProps) => {
         id,
     } = ownProps;
 
-    const accData = _.find(accounts, (data) => {
-        return data.id === id;
-    })
+    const accData = accounts[id];
 
     return {
         accData,

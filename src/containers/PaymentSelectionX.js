@@ -4,7 +4,9 @@ import { selectMethod } from '../actions/payment';
 
 const mapStateToProps = (state, props) => {
     return {
-        method: state.payment.method,
+        selectedMethodId: state.payment.method,
+        selectedAccountId: state.payment.account,
+        paymentMethods: state.paymentMethods,
     }
 }
 

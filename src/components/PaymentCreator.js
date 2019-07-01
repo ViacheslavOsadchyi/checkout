@@ -6,6 +6,7 @@ import AddAccountModalX from "../containers/AddAccountModalX";
 import EditAccountModalX from "../containers/EditAccountModalX";
 import CustomerAccountsX from '../containers/CustomerAccountsX';
 import PaymentSelectionX from '../containers/PaymentSelectionX';
+import DetailedCartX from '../containers/DetailedCartX';
 
 
 const styles = theme => ({
@@ -37,9 +38,7 @@ class PaymentCreator extends Component {
               </Router>
             </Grid>
             <Grid item className={classes.cartWrapper}>
-              <h2>
-                Cart
-              </h2>
+              <DetailedCartX />
             </Grid>
           </Grid>
           <AddAccountModalX />

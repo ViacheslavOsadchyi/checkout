@@ -4,6 +4,7 @@ import PaymentSelection from './PaymentSelection';
 import CustomerAccount from './CustomerAccount';
 import AddAccountModal from './AddAccountModal';
 import EditAccountModal from './EditAccountModal';
+import DetailedCart from './DetailedCart';
 // import CustomerAccount from './CustomerAccount';
 
 export {
@@ -13,5 +14,6 @@ export {
     CustomerAccount,
     AddAccountModal,
     EditAccountModal,
+    DetailedCart,
     // CustomerAccount,
 };
