@@ -3,7 +3,7 @@ import {
     hideAddAccountModal,
 } from '../actions/addAccountModal';
 import {
-    addAccount,
+    createAccountInstance,
 } from '../actions/customerAccounts';
 import { AddAccountModal } from '../components';
 
@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => {
             dispatch(hideAddAccountModal());
         },
         handleAdd: (data) => {
-            dispatch(addAccount(data));
+            dispatch(createAccountInstance(data));
         }
     }
 }

@@ -43,15 +43,18 @@ export function selectMethod(methodId) {
       cart: {
         subtotal,
       },
-      paymentMethods: methods,
+      paymentMethods,
       fees,
     } = state;
 
-    const methodFees = methods[methodId].fees.map(id => (fees[id]));
+    console.log('Here!!!');
+    console.log(paymentMethods[methodId]);
+    const methodFees = paymentMethods[methodId].fees.map(id => fees[id]);
 
     const total = methodFees.reduce((currentTotal, feeData) => {
       return currentTotal += currentTotal * (parseFloat(feeData.percents) / 100);
     }, subtotal);
+
     
     dispatch(setPaymentMethod(methodId));
     dispatch(setCartTotalValue(Math.round(total * 100)/100));

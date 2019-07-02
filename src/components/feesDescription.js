@@ -8,8 +8,7 @@ function feesDescription(WrappedComponent) {
                 subtotal,
             } = this.props;
 
-
-            const feesDescription = methodFees.map((feeData, i ,arr) => {
+            const descriptions = methodFees.map((feeData, i ,arr) => {
                 const {
                     label,
                 } = feeData;
@@ -24,7 +23,7 @@ function feesDescription(WrappedComponent) {
                 }
             });
 
-            return <WrappedComponent feesDescription={feesDescription} {...this.props} />;
+            return <WrappedComponent feesDescription={descriptions} {...this.props} />;
         }
     }
 }

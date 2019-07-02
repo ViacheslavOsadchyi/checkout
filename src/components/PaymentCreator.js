@@ -6,6 +6,7 @@ import AddAccountModalX from "../containers/AddAccountModalX";
 import EditAccountModalX from "../containers/EditAccountModalX";
 import CustomerAccountsX from '../containers/CustomerAccountsX';
 import PaymentSelectionX from '../containers/PaymentSelectionX';
+import OrderCompleted from './OrderCompleted';
 import DetailedCartX from '../containers/DetailedCartX';
 
 
@@ -35,6 +36,7 @@ class PaymentCreator extends Component {
               <Router>
                 <Route path="/" exact component={CustomerAccountsX} />
                 <Route path="/methods" component={PaymentSelectionX} />
+                <Route path="/checkout" component={OrderCompleted} />
               </Router>
             </Grid>
             <Grid item className={classes.cartWrapper}>

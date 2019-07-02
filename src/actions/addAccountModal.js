@@ -1,5 +1,5 @@
 import {
-  addAccount,
+  createAccountInstance,
 } from './customerAccounts';
 
 /*
@@ -26,7 +26,7 @@ export function addAccountFromModal(accData) {
   return (dispatch) => {
     dispatch(hideAddAccountModal());
     setTimeout(()=>{
-      dispatch(addAccount(accData));
+      dispatch(createAccountInstance(accData));
     }, 500);
   }
 }

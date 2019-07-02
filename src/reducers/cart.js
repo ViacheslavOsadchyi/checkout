@@ -1,5 +1,6 @@
 import {
     SET_CART_TOTAL_VALUE,
+    RESET_CART_TOTAL,
 } from '../actions/cart';
 
 const initialState = {
@@ -23,6 +24,11 @@ export default function cart (state = initialState, action) {
             return {
                 ...state,
                 total: action.value,
+            }
+        case RESET_CART_TOTAL:
+            return {
+                ...state,
+                total: state.subtotal,
             }
         default:
     }

@@ -28,9 +28,17 @@ class CustomerAccounts extends Component {
             <Grid item>
               <div className={classes.gridContainer + " customerAccounts__grid"}>
                 <Grid container spacing={24}>
-                  {Object.keys(accounts).map((id) => (
-                    <Grid key={id} item>
-                      <CustomerAccountX id={id} />
+                  {Object.values(accounts).sort((a, b) => {
+                    if (a.created_at > b.created_at) {
+                      return 1;
+                    }
+                    if (a.created_at < b.created_at) {
+                      return -1;
+                    }
+                    return 0;
+                  }).map((accData) => (
+                    <Grid key={accData.id} item>
+                      <CustomerAccountX id={accData.id} />
                     </Grid>
                   ))}
                   <Grid item>

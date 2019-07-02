@@ -3,15 +3,12 @@ import {
     SET_PAYMENT_METHOD,
 } from '../actions/payment';
 import {
-    DELETE_ACCOUNT,
+    DELETE_ACCOUNT_INSTANCE,
 } from '../actions/customerAccounts';
 
 const initialState = {
     account: null,
     method: null,
-    VATIncluded: false,
-    comissionIncluded: false,
-    total: 400,
 };
 
 export default function payment (state = initialState, action) {
@@ -26,11 +23,12 @@ export default function payment (state = initialState, action) {
                 ...state,
                 method: action.id,
             };
-        case DELETE_ACCOUNT:
+        case DELETE_ACCOUNT_INSTANCE:
             if (action.id === state.account){
                 return {
                     ...state,
                     account: null,
+                    method: null,
                 }
             }
             return state;

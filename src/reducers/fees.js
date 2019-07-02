@@ -1,4 +1,3 @@
-
 const initialState = {
     "0": {
         id: "0",

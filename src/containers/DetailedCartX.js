@@ -5,9 +5,9 @@ const mapStateToProps = (state, props) => {
     const {
         cart,
         products,
+        payment,
         paymentMethods,
         fees,
-        payment,
     } = state;
 
     const cartItems = cart.items.map(item => ({
