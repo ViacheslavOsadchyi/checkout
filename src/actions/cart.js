@@ -3,7 +3,7 @@
  */
 
  export const SET_CART_TOTAL_VALUE = 'SET_CART_TOTAL_VALUE';
- export const CLEAR_CART_TOTAL = 'CLEAR_CART_TOTAL';
+ export const RESET_CART_TOTAL = 'RESET_CART_TOTAL';
 
 
 
@@ -15,6 +15,6 @@ export function setCartTotalValue(value) {
   return { type: SET_CART_TOTAL_VALUE, value }
 }
 
-export function clearCartTotal() {
-  return { type: CLEAR_CART_TOTAL }
+export function resetCartTotal() {
+  return { type: RESET_CART_TOTAL }
 }

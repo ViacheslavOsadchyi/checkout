@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 import {
     CREATE_ACCOUNT_INSTANCE,
-    EDIT_ACCOUNT_INSTANCE,
+    UPDATE_ACCOUNT_INSTANCE,
     DELETE_ACCOUNT_INSTANCE,
 } from '../actions/customerAccounts';
 
@@ -68,7 +68,7 @@ export default function customerAccounts (state = initialState, action) {
             };
         case DELETE_ACCOUNT_INSTANCE:
             return _.omit(state, action.id)
-        case EDIT_ACCOUNT_INSTANCE:          
+        case UPDATE_ACCOUNT_INSTANCE:          
             return {
                 ...state,
                 [action.data.id]: action.data,
