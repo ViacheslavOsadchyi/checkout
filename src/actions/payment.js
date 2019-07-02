@@ -50,7 +50,7 @@ export function selectMethod(methodId) {
     const methodFees = methods[methodId].fees.map(id => (fees[id]));
 
     const total = methodFees.reduce((currentTotal, feeData) => {
-      return currentTotal += subtotal * (parseFloat(feeData.percents) / 100);
+      return currentTotal += currentTotal * (parseFloat(feeData.percents) / 100);
     }, subtotal);
     
     dispatch(setPaymentMethod(methodId));

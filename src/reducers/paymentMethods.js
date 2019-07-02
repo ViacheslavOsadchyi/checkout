@@ -10,7 +10,7 @@ const initialState = {
         id: "1",
         name: "credit_card",
         label: "Credit Card",
-        fees: ["1"]
+        fees: ["0"]
     },
     "2": {
         id: "2",

@@ -9,15 +9,18 @@ function feesDescription(WrappedComponent) {
             } = this.props;
 
 
-            const feesDescription = methodFees.map((feeData) => {
+            const feesDescription = methodFees.map((feeData, i ,arr) => {
                 const {
                     label,
-                    percents,
                 } = feeData;
-                const value = subtotal * (parseFloat(percents) / 100);
+                const prevFees = i ? arr.slice(0, i + 1) : [feeData];
+                const total = prevFees.reduce((currentSubtotal, currentFeeData) => {
+                    return currentSubtotal += currentSubtotal * (parseFloat(currentFeeData.percents) / 100);
+                }, subtotal);
+                const feeTotal = Math.round((total - subtotal) * 100) / 100;
                 return {
                     label,
-                    value,
+                    value: feeTotal,
                 }
             });
 

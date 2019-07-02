@@ -24,6 +24,7 @@ export default function cart (state = initialState, action) {
                 ...state,
                 total: action.value,
             }
+        default:
     }
     return state;
 }

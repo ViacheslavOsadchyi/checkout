@@ -1,14 +1,10 @@
 import {
     SET_PAYMENT_ACCOUNT, 
     SET_PAYMENT_METHOD,
-    // SET_TOTAL_VALUE,
 } from '../actions/payment';
 import {
     DELETE_ACCOUNT,
 } from '../actions/customerAccounts';
-// import {
-//     SET_CART_TOTAL_VALUE,
-// } from '../actions/cart';
 
 const initialState = {
     account: null,
@@ -25,11 +21,6 @@ export default function payment (state = initialState, action) {
                 ...state,
                 account: action.id,
             };
-        // case SET_TOTAL_VALUE:
-        //         return {
-        //             ...state,
-        //             total: action.value,
-        //         };
         case SET_PAYMENT_METHOD:
             return {
                 ...state,
