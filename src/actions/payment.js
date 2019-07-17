@@ -8,7 +8,6 @@ import {
 
 export const SET_PAYMENT_ACCOUNT = 'SET_PAYMENT_ACCOUNT';
 export const SET_PAYMENT_METHOD = 'SET_PAYMENT_METHOD';
-// export const SET_TOTAL_VALUE = 'SET_TOTAL_VALUE';
 
 
 /*
@@ -28,10 +27,6 @@ export function selectAccount(id) {
   }
 }
 
-// export function setTotalValue(value) {
-//   return { type: SET_TOTAL_VALUE, value }
-// }
-
 export function setPaymentMethod(methodId) {
   return { type: SET_PAYMENT_METHOD, id: methodId };
 }
@@ -47,8 +42,6 @@ export function selectMethod(methodId) {
       fees,
     } = state;
 
-    console.log('Here!!!');
-    console.log(paymentMethods[methodId]);
     const methodFees = paymentMethods[methodId].fees.map(id => fees[id]);
 
     const total = methodFees.reduce((currentTotal, feeData) => {

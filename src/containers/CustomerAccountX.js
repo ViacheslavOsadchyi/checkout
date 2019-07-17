@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import {
-    deleteAccount,
-} from '../actions/customerAccounts';
-import {
     showEditAccountModal,
 } from '../actions/editAccountModal';
+import {
+    showDeleteAccountConfirmationModal,
+} from '../actions/deleteAccountConfirmationModal';
 import CustomerAccount from '../components/CustomerAccount';
 import { selectAccount } from '../actions/payment';
 
@@ -30,8 +30,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        deleteAccountHandler: () => {
-            dispatch(deleteAccount(ownProps.id));
+        showDeleteAccountConfirmationModalHandler: () => {
+            dispatch(showDeleteAccountConfirmationModal(ownProps.id));
         },
         selectAccountHandler: () => {
             dispatch(selectAccount(ownProps.id));

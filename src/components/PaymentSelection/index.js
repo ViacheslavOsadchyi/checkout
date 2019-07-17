@@ -46,7 +46,7 @@ class PaymentSelection extends Component {
                 );
               })}
             </Grid>
-            <Grid item>
+            <Grid item className={classes.actionButtons}>
               <Grid container justify="space-between" alignItems="center">
                 <Grid item>
                   <Button component={Link} to="/">

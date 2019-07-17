@@ -5,7 +5,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import Button from '@material-ui/core/Button';
 import EditAccountForm from '../EditAccountForm';
 
@@ -20,16 +19,12 @@ class EditAccountModal extends Component {
 
       return (
         <Dialog
-            minWidth={300}
             open={isVisible}
         >
             <DialogTitle>
                 Edit Customer Account
             </DialogTitle>
             <DialogContent>
-                <DialogContentText>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                </DialogContentText>
                 <EditAccountForm accountId={accountId} />
             </DialogContent>
             <DialogActions>

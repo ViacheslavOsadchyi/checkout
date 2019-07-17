@@ -18,16 +18,12 @@ class AddAccountModal extends Component {
       } = this.props;
       return (
         <Dialog
-            minWidth={300}
             open={addAccountModalShow}
         >
             <DialogTitle>
                 Add Customer Account
             </DialogTitle>
             <DialogContent>
-                <DialogContentText>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                </DialogContentText>
                 <AddAccountForm />
             </DialogContent>
             <DialogActions>

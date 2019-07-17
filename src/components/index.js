@@ -4,8 +4,8 @@ import PaymentSelection from './PaymentSelection';
 import CustomerAccount from './CustomerAccount';
 import AddAccountModal from './AddAccountModal';
 import EditAccountModal from './EditAccountModal';
+import DeleteAccountConfirmationModal from './DeleteAccountConfirmationModal';
 import DetailedCart from './DetailedCart';
-// import CustomerAccount from './CustomerAccount';
 
 export {
     PaymentCreator,
@@ -14,6 +14,6 @@ export {
     CustomerAccount,
     AddAccountModal,
     EditAccountModal,
+    DeleteAccountConfirmationModal,
     DetailedCart,
-    // CustomerAccount,
 };
