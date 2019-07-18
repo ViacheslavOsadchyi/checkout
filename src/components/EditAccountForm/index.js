@@ -49,7 +49,6 @@ class EditAccountForm extends Component {
               label: 'Payment Method *'
             }}
           >
-            <MenuItem value=""><em>None</em></MenuItem>
             {Object.keys(paymentMethods).map(id => {
               const methodData = paymentMethods[id];
               return (<MenuItem key={id} value={id}>{methodData.label}</MenuItem>);
